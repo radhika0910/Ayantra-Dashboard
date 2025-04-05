@@ -1,0 +1,48 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model rides {
+  ride_id              Int      @id @default(autoincrement())
+  origin_address       String   @db.VarChar(255)
+  destination_address  String   @db.VarChar(255)
+  origin_latitude      Decimal  @db.Decimal(9, 6)
+  origin_longitude     Decimal  @db.Decimal(9, 6)
+  destination_latitude Decimal  @db.Decimal(9, 6)
+  destination_longitude Decimal @db.Decimal(9, 6)
+  ride_time            Int
+  fare_price           Decimal  @db.Decimal(10, 2)
+  payment_status       String   @db.VarChar(20)
+  driver_id            Int?
+  user_id              String   @db.VarChar(100)
+  status               Boolean?
+  created_at           DateTime @default(now()) @db.Timestamp()
+  driver               drivers? @relation(fields: [driver_id], references: [id])
+  user                 users?   @relation(fields: [user_id], references: [clerk_id])
+}
+
+model drivers {
+  id               Int     @id @default(autoincrement())
+  first_name       String  @db.VarChar(50)
+  last_name        String  @db.VarChar(50)
+  profile_image_url String?
+  car_image_url    String?
+  car_seats        Int
+  rating           Decimal? @db.Decimal(3, 2)
+  rides            rides[]
+}
+
+model users {
+  id        Int     @id @default(autoincrement())
+  name      String  @db.VarChar(100)
+  email     String  @unique @db.VarChar(100)
+  clerk_id  String  @unique @db.VarChar(50)
+  rides     rides[]
+  role      String  @db.VarChar(50)
+  verified  Boolean?
+}
