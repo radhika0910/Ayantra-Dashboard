@@ -64,7 +64,7 @@ export default function RidesTable() {
                   {ride.driver ? `${ride.driver.first_name} ${ride.driver.last_name}` : 'Unassigned'}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{ride.ride_time} mins</td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${ride.fare_price.toFixed(2)}</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${ride.fare_price}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                     ride.payment_status === 'COMPLETED' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'

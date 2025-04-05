@@ -57,7 +57,7 @@ const statCards = [
     },
     {
       title: 'Total Revenue',
-      value: `rs ${stats.totalRevenue.toFixed(2)}`,
+      value: `rs ${stats.totalRevenue}`,
       icon: FaMoneyBill,
       color: 'bg-yellow-500',
     },
