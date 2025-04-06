@@ -89,7 +89,7 @@ export default function DriversTable() {
     <div className="space-y-8">
       {/* Regular Drivers Table */}
       <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-bold mb-4">Registered Drivers</h2>
+        <h2 className="text-xl font-bold mb-4 text-gray-600">Registered Drivers</h2>
         {existingDrivers.length === 0 ? (
           <p className="text-gray-500">No registered drivers found</p>
         ) : (
@@ -140,7 +140,7 @@ export default function DriversTable() {
 
       {/* Driver Users Table */}
       <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-bold mb-4">Users with Driver Role</h2>
+        <h2 className="text-xl font-bold mb-4 text-gray-600">Users with Driver Role</h2>
         {driverUsers.length === 0 ? (
           <p className="text-gray-500">No users with driver role found</p>
         ) : (

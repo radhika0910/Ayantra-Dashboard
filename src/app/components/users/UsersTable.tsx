@@ -38,7 +38,7 @@ const filteredUsers = roleFilter === 'all'
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-bold mb-4">Users</h2>
+      <h2 className="text-xl font-bold mb-4 text-gray-600">Users</h2>
       <div className="mb-4">
   <label className="mr-2">Filter by role:</label>
   <select 
